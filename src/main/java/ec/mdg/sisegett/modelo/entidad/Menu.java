@@ -6,10 +6,10 @@
 package ec.mdg.sisegett.modelo.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,9 +17,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Menu.findByIdmen", query = "SELECT m FROM Menu m WHERE m.idmen = :idmen"),
     @NamedQuery(name = "Menu.findByDescripcionmen", query = "SELECT m FROM Menu m WHERE m.descripcionmen = :descripcionmen"),
     @NamedQuery(name = "Menu.findByTipomen", query = "SELECT m FROM Menu m WHERE m.tipomen = :tipomen"),
-    @NamedQuery(name = "Menu.findByCodigosubmenumen", query = "SELECT m FROM Menu m WHERE m.codigosubmenumen = :codigosubmenumen"),
+    @NamedQuery(name = "Menu.findByTipousuariomen", query = "SELECT m FROM Menu m WHERE m.tipousuariomen = :tipousuariomen"),
     @NamedQuery(name = "Menu.findByRutamen", query = "SELECT m FROM Menu m WHERE m.rutamen = :rutamen"),
     @NamedQuery(name = "Menu.findByEstadomen", query = "SELECT m FROM Menu m WHERE m.estadomen = :estadomen")})
 public class Menu implements Serializable {
@@ -49,16 +51,19 @@ public class Menu implements Serializable {
     @Size(max = 2)
     @Column(name = "tipomen")
     private String tipomen;
-    @Column(name = "codigosubmenumen")
-    private Integer codigosubmenumen;
+    @Size(max = 3)
+    @Column(name = "tipousuariomen")
+    private String tipousuariomen;
     @Size(max = 255)
     @Column(name = "rutamen")
     private String rutamen;
     @Column(name = "estadomen")
     private Boolean estadomen;
-    @JoinColumn(name = "idperf", referencedColumnName = "idperf")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Perfil idperf;
+    @OneToMany(mappedBy = "codigosubmen")
+    private List<Menu> menuList;
+    @JoinColumn(name = "codigosubmen", referencedColumnName = "idmen")
+    @ManyToOne
+    private Menu codigosubmen;
 
     public Menu() {
     }
@@ -91,12 +96,12 @@ public class Menu implements Serializable {
         this.tipomen = tipomen;
     }
 
-    public Integer getCodigosubmenumen() {
-        return codigosubmenumen;
+    public String getTipousuariomen() {
+        return tipousuariomen;
     }
 
-    public void setCodigosubmenumen(Integer codigosubmenumen) {
-        this.codigosubmenumen = codigosubmenumen;
+    public void setTipousuariomen(String tipousuariomen) {
+        this.tipousuariomen = tipousuariomen;
     }
 
     public String getRutamen() {
@@ -115,12 +120,21 @@ public class Menu implements Serializable {
         this.estadomen = estadomen;
     }
 
-    public Perfil getIdperf() {
-        return idperf;
+    @XmlTransient
+    public List<Menu> getMenuList() {
+        return menuList;
     }
 
-    public void setIdperf(Perfil idperf) {
-        this.idperf = idperf;
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
+
+    public Menu getCodigosubmen() {
+        return codigosubmen;
+    }
+
+    public void setCodigosubmen(Menu codigosubmen) {
+        this.codigosubmen = codigosubmen;
     }
 
     @Override
@@ -145,7 +159,7 @@ public class Menu implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Menu[ idmen=" + idmen + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Menu[ idmen=" + idmen + " ]";
     }
     
 }

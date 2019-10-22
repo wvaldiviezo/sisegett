@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,9 +46,9 @@ public class Objetivosespecificos implements Serializable {
     @Column(name = "descripcionobjesp")
     private String descripcionobjesp;
     @JoinColumn(name = "idobjgen", referencedColumnName = "idobjgen")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Objetivosgenerales idobjgen;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idobjesp", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idobjesp")
     private List<Acciones> accionesList;
 
     public Objetivosespecificos() {
@@ -114,7 +113,7 @@ public class Objetivosespecificos implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Objetivosespecificos[ idobjesp=" + idobjesp + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Objetivosespecificos[ idobjesp=" + idobjesp + " ]";
     }
     
 }

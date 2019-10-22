@@ -12,12 +12,10 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -48,6 +46,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Persona.findByLoginper", query = "SELECT p FROM Persona p WHERE p.loginper = :loginper"),
     @NamedQuery(name = "Persona.findByClaveper", query = "SELECT p FROM Persona p WHERE p.claveper = :claveper"),
     @NamedQuery(name = "Persona.findByEstadoper", query = "SELECT p FROM Persona p WHERE p.estadoper = :estadoper"),
+    @NamedQuery(name = "Persona.findByTipousuariomenuper", query = "SELECT p FROM Persona p WHERE p.tipousuariomenuper = :tipousuariomenuper"),
     @NamedQuery(name = "Persona.findByAufecharegistroper", query = "SELECT p FROM Persona p WHERE p.aufecharegistroper = :aufecharegistroper"),
     @NamedQuery(name = "Persona.findByAuusuarioregistroper", query = "SELECT p FROM Persona p WHERE p.auusuarioregistroper = :auusuarioregistroper"),
     @NamedQuery(name = "Persona.findByAufechamodificacionper", query = "SELECT p FROM Persona p WHERE p.aufechamodificacionper = :aufechamodificacionper"),
@@ -85,24 +84,25 @@ public class Persona implements Serializable {
     private String claveper;
     @Column(name = "estadoper")
     private Boolean estadoper;
+    @Size(max = 3)
+    @Column(name = "tipousuariomenuper")
+    private String tipousuariomenuper;
     @Column(name = "aufecharegistroper")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date aufecharegistroper;
     @Size(max = 100)
     @Column(name = "auusuarioregistroper")
     private String auusuarioregistroper;
     @Column(name = "aufechamodificacionper")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date aufechamodificacionper;
     @Size(max = 100)
     @Column(name = "auusuariomodificacionper")
     private String auusuariomodificacionper;
-    @ManyToMany(mappedBy = "personaList", fetch = FetchType.LAZY)
-    private List<Perfil> perfilList;
     @JoinColumn(name = "idins", referencedColumnName = "idins")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Institucion idins;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idper", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idper")
     private List<Correo> correoList;
 
     public Persona() {
@@ -192,6 +192,14 @@ public class Persona implements Serializable {
         this.estadoper = estadoper;
     }
 
+    public String getTipousuariomenuper() {
+        return tipousuariomenuper;
+    }
+
+    public void setTipousuariomenuper(String tipousuariomenuper) {
+        this.tipousuariomenuper = tipousuariomenuper;
+    }
+
     public Date getAufecharegistroper() {
         return aufecharegistroper;
     }
@@ -222,15 +230,6 @@ public class Persona implements Serializable {
 
     public void setAuusuariomodificacionper(String auusuariomodificacionper) {
         this.auusuariomodificacionper = auusuariomodificacionper;
-    }
-
-    @XmlTransient
-    public List<Perfil> getPerfilList() {
-        return perfilList;
-    }
-
-    public void setPerfilList(List<Perfil> perfilList) {
-        this.perfilList = perfilList;
     }
 
     public Institucion getIdins() {
@@ -272,7 +271,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Persona[ idper=" + idper + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Persona[ idper=" + idper + " ]";
     }
     
 }

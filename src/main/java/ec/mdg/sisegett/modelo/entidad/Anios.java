@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +43,7 @@ public class Anios implements Serializable {
     @Size(max = 20)
     @Column(name = "descripcionani")
     private String descripcionani;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idani", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idani")
     private List<Objetivosgenerales> objetivosgeneralesList;
 
     public Anios() {
@@ -101,7 +100,7 @@ public class Anios implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Anios[ idani=" + idani + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Anios[ idani=" + idani + " ]";
     }
     
 }

@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +43,7 @@ public class Avance implements Serializable {
     @Size(max = 20)
     @Column(name = "descripcionava")
     private String descripcionava;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idava", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idava")
     private List<Actividades> actividadesList;
 
     public Avance() {
@@ -101,7 +100,7 @@ public class Avance implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Avance[ idava=" + idava + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Avance[ idava=" + idava + " ]";
     }
     
 }

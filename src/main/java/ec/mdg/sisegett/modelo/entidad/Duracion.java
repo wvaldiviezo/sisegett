@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +43,7 @@ public class Duracion implements Serializable {
     @Size(max = 50)
     @Column(name = "descripciondur")
     private String descripciondur;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iddur", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iddur")
     private List<Actividades> actividadesList;
 
     public Duracion() {
@@ -101,7 +100,7 @@ public class Duracion implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Duracion[ iddur=" + iddur + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Duracion[ iddur=" + iddur + " ]";
     }
     
 }

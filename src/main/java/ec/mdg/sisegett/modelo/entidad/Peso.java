@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +43,7 @@ public class Peso implements Serializable {
     @Size(max = 50)
     @Column(name = "descripcionpes")
     private String descripcionpes;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpes", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpes")
     private List<Actividades> actividadesList;
 
     public Peso() {
@@ -101,7 +100,7 @@ public class Peso implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Peso[ idpes=" + idpes + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Peso[ idpes=" + idpes + " ]";
     }
     
 }

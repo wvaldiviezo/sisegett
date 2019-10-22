@@ -1,12 +1,59 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title></title>
+        <title>Administración de Juicios</title>
+        <h:outputStylesheet library="css" name="index.css" />
     </h:head>
+
     <h:body>
-        SISEGETT
+
+        <div id="principal" style="background-image: url('resources/images/logo_marca_pais.png'); background-repeat: no-repeat;background-size: 50%; background-position-x: 50% ;background-position-y: 10%">
+            <br/>
+            <br/>
+            <h:form id="cuadrado">
+
+                <p:growl id="mensaje" autoUpdate="false" severity="warn, fatal" showSummary="true" showDetail="true"/>
+
+
+                <h:panelGrid id="pgDatosUsuario" columns="3" cellpadding="8" style="padding-top: 15%" >
+
+
+                    <h:column>
+
+                        <h:panelGrid id="panel" columns="1" cellpadding="5" cellspacing="1" style="padding-right: 50px; margin: 0 auto;">
+
+                            <!--style="color: #045491; font-weight: bold;"-->                            
+                            <p:outputLabel style="color: #003778" value="Usuario:"/>
+                            <p:inputText id="txtUsuario" value="#{ingresar.nombreUsuario}" required="true" requiredMessage="Campo requerido" />
+                            <p:message for="txtUsuario" />
+
+                            <p:outputLabel style="color: #003778" value="Contraseña:" />
+                            <p:password id="txtClave" value="#{ingresar.contrasenia}" required="true" requiredMessage="Campo es requerido"/>
+                            <p:message for="txtClave" />
+
+                        </h:panelGrid > 
+                    </h:column>
+
+                    <div style="border-left: 3px solid #003778; width:1px; height:180px; "></div>
+                    <h:column>
+                        <h:panelGrid style="text-align: center ">
+
+                            <h1 style="text-align: center; color: #003778">Bienvenido(a)</h1>
+
+                            <p style="font-size: 18px; text-align: left">AL SISTEMA DE SEGUIMIENTO DE LA GESTIÓN DE TRATA DE PERSONAS Y TRÁFICO ILÍCITO DE MIGRANTES </p>
+
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" style="padding-top: 0%;padding-left: 100px">
+
+                            <p:commandButton icon="ui-icon-key" value="Iniciar Sesión" action="#{ingresar.validarIngreso()}" update="pgDatosUsuario,txtUsuario,txtClave, mensaje"/>
+                        </h:panelGrid>
+                    </h:column>
+                </h:panelGrid>
+            </h:form>
+        </div>
     </h:body>
 </html>
-

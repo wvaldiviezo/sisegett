@@ -9,7 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,7 +42,7 @@ public class Correo implements Serializable {
     @Column(name = "descripcioncor")
     private String descripcioncor;
     @JoinColumn(name = "idper", referencedColumnName = "idper")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Persona idper;
 
     public Correo() {
@@ -99,7 +98,7 @@ public class Correo implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Correo[ idcor=" + idcor + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Correo[ idcor=" + idcor + " ]";
     }
     
 }

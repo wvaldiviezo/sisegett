@@ -9,7 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,7 +46,7 @@ public class Archivosverificables implements Serializable {
     @Column(name = "rutaav")
     private String rutaav;
     @JoinColumn(name = "idact", referencedColumnName = "idact")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Actividades idact;
 
     public Archivosverificables() {
@@ -111,7 +110,7 @@ public class Archivosverificables implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Archivosverificables[ idav=" + idav + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Archivosverificables[ idav=" + idav + " ]";
     }
     
 }

@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -74,13 +73,13 @@ public class Acciones implements Serializable {
     @Column(name = "detalleavanceacc")
     private String detalleavanceacc;
     @Column(name = "aufecharegistroacc")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date aufecharegistroacc;
     @Size(max = 100)
     @Column(name = "auusuarioregistroacc")
     private String auusuarioregistroacc;
     @Column(name = "aufechamodificaacc")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date aufechamodificaacc;
     @Size(max = 100)
     @Column(name = "auusuariomodificaacc")
@@ -88,17 +87,17 @@ public class Acciones implements Serializable {
     @JoinTable(name = "relationship_14", joinColumns = {
         @JoinColumn(name = "idacc", referencedColumnName = "idacc")}, inverseJoinColumns = {
         @JoinColumn(name = "idins", referencedColumnName = "idins")})
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     private List<Institucion> institucionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacc", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacc")
     private List<Actividades> actividadesList;
     @JoinColumn(name = "idimp", referencedColumnName = "idimp")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Importancia idimp;
     @JoinColumn(name = "idobjesp", referencedColumnName = "idobjesp")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Objetivosespecificos idobjesp;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacc", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacc")
     private List<Tipoproyecto> tipoproyectoList;
 
     public Acciones() {
@@ -258,7 +257,7 @@ public class Acciones implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Acciones[ idacc=" + idacc + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Acciones[ idacc=" + idacc + " ]";
     }
     
 }

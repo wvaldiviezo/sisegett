@@ -9,7 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,7 +42,7 @@ public class Tipoproyecto implements Serializable {
     @Column(name = "descripciontp")
     private String descripciontp;
     @JoinColumn(name = "idacc", referencedColumnName = "idacc")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Acciones idacc;
 
     public Tipoproyecto() {
@@ -99,7 +98,7 @@ public class Tipoproyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Tipoproyecto[ idtp=" + idtp + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Tipoproyecto[ idtp=" + idtp + " ]";
     }
     
 }

@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -62,33 +61,33 @@ public class Actividades implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechafinact;
     @Column(name = "aufecharegistroact")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date aufecharegistroact;
     @Size(max = 100)
     @Column(name = "auusuarioregistroact")
     private String auusuarioregistroact;
     @Column(name = "aufechamodificacionact")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date aufechamodificacionact;
     @Size(max = 100)
     @Column(name = "auusuariomodificaact")
     private String auusuariomodificaact;
     @JoinColumn(name = "idacc", referencedColumnName = "idacc")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Acciones idacc;
     @JoinColumn(name = "idava", referencedColumnName = "idava")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Avance idava;
     @JoinColumn(name = "iddur", referencedColumnName = "iddur")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Duracion iddur;
     @JoinColumn(name = "idest", referencedColumnName = "idest")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Estadogestion idest;
     @JoinColumn(name = "idpes", referencedColumnName = "idpes")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Peso idpes;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idact", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idact")
     private List<Archivosverificables> archivosverificablesList;
 
     public Actividades() {
@@ -233,7 +232,7 @@ public class Actividades implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Actividades[ idact=" + idact + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Actividades[ idact=" + idact + " ]";
     }
     
 }

@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,9 +44,9 @@ public class Institucion implements Serializable {
     @Size(max = 200)
     @Column(name = "descripcionins")
     private String descripcionins;
-    @ManyToMany(mappedBy = "institucionList", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "institucionList")
     private List<Acciones> accionesList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idins", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idins")
     private List<Persona> personaList;
 
     public Institucion() {
@@ -113,7 +112,7 @@ public class Institucion implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Institucion[ idins=" + idins + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Institucion[ idins=" + idins + " ]";
     }
     
 }

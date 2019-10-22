@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +43,7 @@ public class Importancia implements Serializable {
     @Size(max = 100)
     @Column(name = "descripcionimp")
     private String descripcionimp;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idimp", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idimp")
     private List<Acciones> accionesList;
 
     public Importancia() {
@@ -101,7 +100,7 @@ public class Importancia implements Serializable {
 
     @Override
     public String toString() {
-        return "ec.mdg.sisegett.modelo.Importancia[ idimp=" + idimp + " ]";
+        return "ec.mdg.sisegett.modelo.entidad.Importancia[ idimp=" + idimp + " ]";
     }
     
 }
