@@ -6,12 +6,15 @@
 package ec.mdg.sisegett.modelo.dao;
 
 import ec.mdg.sisegett.modelo.entidad.Acciones;
+import java.util.List;
 
 /**
  *
  * @author wilmer.valdiviezo
  */
 public interface AccionesDao extends GenericDao<Acciones, Integer>{
+    
+    public List<Acciones> listarAccionesDesc();
     
     
 }

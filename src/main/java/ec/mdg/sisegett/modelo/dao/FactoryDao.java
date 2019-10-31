@@ -39,5 +39,7 @@ public abstract class FactoryDao {
     public abstract PersonaDao getPersonaDao();
     public abstract PesoDao getPesoDao();
     public abstract TipoproyectoDao getTipoproyectoDao();
+    public abstract TiposaccionesDao getTiposaccionesDao();
+    
     
 }

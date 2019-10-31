@@ -61,13 +61,13 @@ public class Actividades implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechafinact;
     @Column(name = "aufecharegistroact")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date aufecharegistroact;
     @Size(max = 100)
     @Column(name = "auusuarioregistroact")
     private String auusuarioregistroact;
     @Column(name = "aufechamodificacionact")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date aufechamodificacionact;
     @Size(max = 100)
     @Column(name = "auusuariomodificaact")

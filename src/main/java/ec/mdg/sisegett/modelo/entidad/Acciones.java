@@ -25,7 +25,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -40,7 +39,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Acciones.findAll", query = "SELECT a FROM Acciones a"),
     @NamedQuery(name = "Acciones.findByIdacc", query = "SELECT a FROM Acciones a WHERE a.idacc = :idacc"),
-    @NamedQuery(name = "Acciones.findByIdtip", query = "SELECT a FROM Acciones a WHERE a.idtip = :idtip"),
     @NamedQuery(name = "Acciones.findByDescripcionacc", query = "SELECT a FROM Acciones a WHERE a.descripcionacc = :descripcionacc"),
     @NamedQuery(name = "Acciones.findByFechainicioacc", query = "SELECT a FROM Acciones a WHERE a.fechainicioacc = :fechainicioacc"),
     @NamedQuery(name = "Acciones.findByFechafinacc", query = "SELECT a FROM Acciones a WHERE a.fechafinacc = :fechafinacc"),
@@ -56,10 +54,6 @@ public class Acciones implements Serializable {
     @Basic(optional = false)
     @Column(name = "idacc")
     private Integer idacc;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idtip")
-    private int idtip;
     @Size(max = 500)
     @Column(name = "descripcionacc")
     private String descripcionacc;
@@ -73,13 +67,13 @@ public class Acciones implements Serializable {
     @Column(name = "detalleavanceacc")
     private String detalleavanceacc;
     @Column(name = "aufecharegistroacc")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date aufecharegistroacc;
     @Size(max = 100)
     @Column(name = "auusuarioregistroacc")
     private String auusuarioregistroacc;
     @Column(name = "aufechamodificaacc")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date aufechamodificaacc;
     @Size(max = 100)
     @Column(name = "auusuariomodificaacc")
@@ -97,8 +91,12 @@ public class Acciones implements Serializable {
     @JoinColumn(name = "idobjesp", referencedColumnName = "idobjesp")
     @ManyToOne(optional = false)
     private Objetivosespecificos idobjesp;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacc")
-    private List<Tipoproyecto> tipoproyectoList;
+    @JoinColumn(name = "idtp", referencedColumnName = "idtp")
+    @ManyToOne(optional = false)
+    private Tipoproyecto idtp;
+    @JoinColumn(name = "idtac", referencedColumnName = "idtac")
+    @ManyToOne(optional = false)
+    private Tiposacciones idtac;
 
     public Acciones() {
     }
@@ -107,25 +105,12 @@ public class Acciones implements Serializable {
         this.idacc = idacc;
     }
 
-    public Acciones(Integer idacc, int idtip) {
-        this.idacc = idacc;
-        this.idtip = idtip;
-    }
-
     public Integer getIdacc() {
         return idacc;
     }
 
     public void setIdacc(Integer idacc) {
         this.idacc = idacc;
-    }
-
-    public int getIdtip() {
-        return idtip;
-    }
-
-    public void setIdtip(int idtip) {
-        this.idtip = idtip;
     }
 
     public String getDescripcionacc() {
@@ -226,13 +211,20 @@ public class Acciones implements Serializable {
         this.idobjesp = idobjesp;
     }
 
-    @XmlTransient
-    public List<Tipoproyecto> getTipoproyectoList() {
-        return tipoproyectoList;
+    public Tipoproyecto getIdtp() {
+        return idtp;
     }
 
-    public void setTipoproyectoList(List<Tipoproyecto> tipoproyectoList) {
-        this.tipoproyectoList = tipoproyectoList;
+    public void setIdtp(Tipoproyecto idtp) {
+        this.idtp = idtp;
+    }
+
+    public Tiposacciones getIdtac() {
+        return idtac;
+    }
+
+    public void setIdtac(Tiposacciones idtac) {
+        this.idtac = idtac;
     }
 
     @Override

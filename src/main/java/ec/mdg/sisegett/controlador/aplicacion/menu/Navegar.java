@@ -56,7 +56,7 @@ public class Navegar implements Serializable {
             System.out.println("LOGRO REDIRECCIONAR A UN NUEVO FORMULARIO");
 //            FacesContext.getCurrentInstance().getExternalContext().redirect("../Inicio/paginaInicial.xhtml");
 
-            FacesContext.getCurrentInstance().getExternalContext().redirect("./../aplicacion/consultaAcciones.sisegett");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("./../aplicacion/listarAcciones.sisegett");
 
         } catch (Exception e) {
             System.out.println("FALLO LA REDIRECCION A LA CONSULTA DE JUICIOS");

@@ -1,16 +1,217 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <body>
-        <div>Registro de la Acción</div>
+        <ui:composition template="./../WEB-INF/plantillas/plantillaInicial.xhtml">
+
+            <ui:define name="content">
+                <h:form id="contenidoBuscar">
+                    <h1 style="color: #003778;text-align: center">Registro del Formulario de la Acción</h1>
+                    <p:growl id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true"/>
+
+                    <p:panelGrid id="pgInfGen" style="margin-left: 2%;border-style: hidden;">
+
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;"></p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:selectManyCheckbox id="grid" value="#{registrarAccion.tipoProyectoseleccionado}" layout="grid" columns="2">
+                                    <f:selectItems value="#{registrarAccion.ltsTipoproyecto}" var="tproyecto" itemLabel="#{tproyecto.descripciontp}" itemValue="#{tproyecto.idtp}" />
+                                </p:selectManyCheckbox>
+                                <p:messages for="tipoProyecto"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Tipo: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:selectOneMenu id="cboTipoAcc" value="#{registrarAccion.tipoAccionID}" filterMatchMode="startsWith" style="width:15%;" required="true" requiredMessage="Selección requerida" styleClass="form-control radius-none" autoWidth="false">
+                                    <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                    <f:selectItems value="#{registrarAccion.ltsTiposacciones}" var="tiposAcciones" itemLabel="#{tiposAcciones.descripciontac}" itemValue="#{tiposAcciones.idtac}" />
+                                </p:selectOneMenu>
+                                <p:messages for="cboTipoAcc"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Importancia: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:selectOneMenu id="cboImportancia" value="#{registrarAccion.importanciaID}" filterMatchMode="startsWith" style="width:15%;" required="true" requiredMessage="Selección requerida" styleClass="form-control radius-none" autoWidth="false">
+                                    <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                    <f:selectItems value="#{registrarAccion.ltsImportancia}" var="importancia" itemLabel="#{importancia.descripcionimp}" itemValue="#{importancia.idimp}" />
+                                </p:selectOneMenu>
+                                <p:messages for="cboImportancia"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Eje: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:selectOneMenu id="cboEje" value="#{registrarAccion.ejeID}" filterMatchMode="startsWith" required="true" requiredMessage="Selección requerida" styleClass="form-control radius-none" autoWidth="false">
+                                    <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                    <f:selectItems value="#{registrarAccion.ltsEjes}" var="eje" itemLabel="#{eje.descripcioneje}" itemValue="#{eje.ideje}" />
+                                    <p:ajax update="cboObjGeneral,cboObjEspecifico"/>
+                                </p:selectOneMenu>
+                                <p:messages for="cboEje"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Objetivo General: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:selectOneMenu id="cboObjGeneral" value="#{registrarAccion.objGeneralID}" filterMatchMode="startsWith" required="true" requiredMessage="Selección requerida" styleClass="form-control radius-none" autoWidth="false">
+                                    <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                    <f:selectItems value="#{registrarAccion.ltsObjGenerales}" var="objGen" itemLabel="#{objGen.descripcionobjgen}" itemValue="#{objGen.idobjgen}" />
+                                    <p:ajax update="cboObjEspecifico" onstart="" />
+                                </p:selectOneMenu>
+                                <p:messages for="cboObjGeneral"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Objetivo Específico: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:selectOneMenu id="cboObjEspecifico" value="#{registrarAccion.objEspecificoID}" filterMatchMode="startsWith" required="true" requiredMessage="Selección requerida" styleClass="form-control radius-none" autoWidth="false">
+                                    <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                    <f:selectItems value="#{registrarAccion.ltsObjEspecificos}" var="objEsp" itemLabel="#{objEsp.descripcionobjesp}" itemValue="#{objEsp.idobjesp}"/>
+                                </p:selectOneMenu>
+                                <p:messages for="cboObjEspecifico"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Acción: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:inputText id="txtAccion"  required="true" requiredMessage="Campo requerido" style="width:920px;text-transform:uppercase;" />
+                                <p:messages for="txtAccion"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Fecha Inicio: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:calendar id="txtFechaIni" locale="es" pattern="dd-MM-yyyy" navigator="true"
+                                            mask="true" required="true" value="#{registrarAccion.accion.fechainicioacc}" requiredMessage="Campo requerido"/>
+                                <p:watermark for="txtFechaIni" value="dd-mm-aaaa" />
+                                <p:messages for="txtFechaIni"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Fecha Fin: </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:calendar id="txtFechaFin" locale="es" pattern="dd-MM-yyyy" navigator="true"
+                                            mask="true" required="true" value="#{registrarAccion.accion.fechafinacc}" requiredMessage="Campo requerido"/>
+                                <p:watermark for="txtFechaFin" value="dd-mm-aaaa" />
+                                <p:messages for="txtFechaFin"/>
+                            </p:column>
+                        </p:row>
+                        <p:row style="border-style: hidden;">
+                            <p:column style="border-style: hidden;">Institución : </p:column>
+                            <p:column style="border-style: hidden;">
+                                <p:commandButton value="Agregar"></p:commandButton>
+                                <p:panelGrid style="border-style: hidden;">
+                                    <f:facet name="header">
+                                        <p:row>
+                                            <p:column>Institución</p:column>
+                                            <p:column>Usuario  /  Jerarquía</p:column>
+                                        </p:row>
+                                    </f:facet>
+                                    <p:row>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboInstitucion1" value="#{registrarAccion.institucionID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsInstituciones}" var="instituciones" itemLabel="#{instituciones.descripcionins}" itemValue="#{instituciones.idins}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboUsuario1" value="#{registrarAccion.personaID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsPersona}" var="personas" itemLabel="#{personas.nombresper} #{personas.apellidosper} / #{personas.cargoper}" itemValue="#{personas.idper}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboInstitucion2" value="#{registrarAccion.institucionID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsInstituciones}" var="instituciones" itemLabel="#{instituciones.descripcionins}" itemValue="#{instituciones.idins}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboUsuario2" value="#{registrarAccion.personaID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsPersona}" var="personas" itemLabel="#{personas.nombresper} #{personas.apellidosper} / #{personas.cargoper}" itemValue="#{personas.idper}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboInstitucion3" value="#{registrarAccion.institucionID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsInstituciones}" var="instituciones" itemLabel="#{instituciones.descripcionins}" itemValue="#{instituciones.idins}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboUsuario3" value="#{registrarAccion.personaID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsPersona}" var="personas" itemLabel="#{personas.nombresper} #{personas.apellidosper}  / #{personas.cargoper}" itemValue="#{personas.idper}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboInstitucion4" value="#{registrarAccion.institucionID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsInstituciones}" var="instituciones" itemLabel="#{instituciones.descripcionins}" itemValue="#{instituciones.idins}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboUsuario4" value="#{registrarAccion.personaID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsPersona}" var="personas" itemLabel="#{personas.nombresper} #{personas.apellidosper}  / #{personas.cargoper}" itemValue="#{personas.idper}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboInstitucion5" value="#{registrarAccion.institucionID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsInstituciones}" var="instituciones" itemLabel="#{instituciones.descripcionins}" itemValue="#{instituciones.idins}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                        <p:column style="border-style: hidden;">
+                                            <p:selectOneMenu id="cboUsuario5" value="#{registrarAccion.personaID}" style="width:150px">
+                                                <f:selectItem itemLabel="- Seleccione -" itemValue="" />
+                                                <f:selectItems value="#{registrarAccion.ltsPersona}" var="personas" itemLabel="#{personas.nombresper} #{personas.apellidosper}  / #{personas.cargoper}" itemValue="#{personas.idper}"/>
+                                            </p:selectOneMenu>
+                                        </p:column>
+                                    </p:row>
+                                </p:panelGrid>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                    <!-- Botones -->
+                    <h1 style="color: #003778;text-align: center"></h1>
+                    <h:panelGrid columns="2" style="margin-left: 45%">
+
+                        <p:commandButton icon="ui-icon-disk" id="btnGuardar" value="Guardar" action="#{registrarAccion.registrarAccion()}" actionListener="#{navegar.direccionarInicio()}" update="">
+                            <p:confirm header="Confirmación" message="Desea Registrar la Acción" icon="ui-icon-alert" />
+                            <!--                                <p:ajax update=":contenido:cboCargo ,:contenido:cboEspecialidad" ></p:ajax>-->
+                        </p:commandButton>
+                        <p:commandButton  icon="fa fa-fw fa-remove" value="Cancelar" update="" process="@this"  actionListener="#{navegar.direccionarConsulta()}" >
+                            <p:confirm header="Confirmación" message="Desea Cancelar el Registro de la Acción" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+                    </h:panelGrid>
+                </h:form>
+
+                <!-- Script de estilos para el contenido fel formulario-->
+                <h:outputStylesheet library="css" name="buscar.css" />
+                <h:outputStylesheet library="css" name="estudios.css" />
+
+            </ui:define>
+
+        </ui:composition>
+
     </body>
 </html>

@@ -6,11 +6,12 @@
 package ec.mdg.sisegett.modelo.dao;
 
 import ec.mdg.sisegett.modelo.entidad.Objetivosespecificos;
+import java.util.List;
 
 /**
  *
  * @author wilmer.valdiviezo 
  */
 public interface ObjetivosespecificosDao extends GenericDao<Objetivosespecificos, Integer>{
-    
+    List<Objetivosespecificos> buscarObjEspecificoPorObjGeneral(int idObjGen);
 }

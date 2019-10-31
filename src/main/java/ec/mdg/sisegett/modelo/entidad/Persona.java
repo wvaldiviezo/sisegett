@@ -88,13 +88,13 @@ public class Persona implements Serializable {
     @Column(name = "tipousuariomenuper")
     private String tipousuariomenuper;
     @Column(name = "aufecharegistroper")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date aufecharegistroper;
     @Size(max = 100)
     @Column(name = "auusuarioregistroper")
     private String auusuarioregistroper;
     @Column(name = "aufechamodificacionper")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date aufechamodificacionper;
     @Size(max = 100)
     @Column(name = "auusuariomodificacionper")

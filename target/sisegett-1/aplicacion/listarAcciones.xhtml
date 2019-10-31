@@ -1,16 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <body>
-        <div>Grilla para Listar Acciones</div>
+        <ui:composition template="./../WEB-INF/plantillas/plantillaInicial.xhtml">
+
+            <ui:define name="content">
+
+                <h:form id="contenidoBuscar">
+
+                    <h1 style="color: #003778;text-align: center">Acciones Registradas</h1>
+
+                    <p:commandButton icon="fa fa-plus" value="Nuevo" actionListener="#{navegar.direccionarNuevo()}" oncomplete="limpiar" style="color: #003778" /> 
+                    <br/>
+                    <p:dataTable id="busquedaAccion" value="#{listarAccion.ltsAcciones}" var="itemAccion"  widgetVar="accionTabla"  rows="15"
+                                 paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="10,15,20"
+                                 paginatorPosition="top" emptyMessage="No hay ningún registro con esa opción">
+
+                        <p:column headerText="No." style="width: 30px; text-align: center" sortBy="#{itemAccion.idacc}">
+                            <h:outputLabel value="#{itemAccion.idacc}" />
+                        </p:column>
+                        <p:column headerText="Descripcion" style="text-align: justify" sortBy="#{itemAccion.descripcionacc}">
+                            <h:outputLabel value="#{itemAccion.descripcionacc}"/>
+                        </p:column>
+                        <p:column headerText="Importancia" style="text-align: center" sortBy="#{itemAccion.idimp.descripcionimp}">
+                            <h:outputLabel value="#{itemAccion.idimp.descripcionimp}" />
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: center">
+                            <h:outputLabel />
+                        </p:column>
+                        <p:column id="botonesAccion" headerText="Opciones" filterMatchMode="accion" style="text-align: center; width: 180px">
+                            <p:commandButton id="ver" icon="fa fa-eye" action="#{listarAccion.verAccion()}" style="color: #045491" process="@form" >
+                                <f:setPropertyActionListener target="#{listarAccion.accionActual}" value="#{itemAccion}" rendered="@form"/>
+                            </p:commandButton>
+                            <p:tooltip id="toolTipFade9" for="ver" value="Detalle Acción" trackMouse="true"/>
+                            <t/><t/><t/><t/><t/><t/>
+                            <p:commandButton id="editar" icon="fa fa-edit" action="#{listarAccion.actualizarAccion(itemAccion.idacc)}" style="color: #04B45F"/>
+                            <p:tooltip id="toolTipFade8" for="editar" value="Editar" trackMouse="true"/>
+                            <t/><t/><t/><t/><t/><t/>
+                            <p:commandButton id="eliminar" icon="fa fa-trash" action="#{juiciosListar.eliminarJuicio(itemEstudio.juCodigo)}" style="color: #D20005">
+                                <p:confirm header="Confirmación" message="Desea eliminar el registro." icon="ui-icon-alert" />
+                            </p:commandButton>
+                            <p:tooltip id="toolTipFade7" for="eliminar" value="Eliminar" trackMouse="true"/>
+                            <t/><t/><t/><t/><t/><t/>
+                            <p:commandButton id="diligencia" icon="fa fa-sticky-note" action="#{juiciosListar.registrarDiligencia(itemEstudio.juCodigo)}" style="color: #2F4F4F"/>
+                            <p:tooltip id="toolTipFade20" for="diligencia" value="Registrar Actividad" trackMouse="true"/>
+                            <t/><t/><t/><t/><t/><t/>
+                            <p:commandButton id="detalleDiligencia" icon="fa fa-list-alt" action="#{juiciosListar.verDiligencia()}" style="color:  #1f618d " process="@form">
+                                <f:setPropertyActionListener target="#{juiciosListar.juActual}" value="#{itemEstudio}" rendered="@form" />
+                            </p:commandButton>
+                            <p:tooltip id="toolTipFade21" for="detalleDiligencia" value="Historial Actividades" trackMouse="true"/>
+
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
+                        </p:column>
+
+                    </p:dataTable>
+
+                </h:form>
+                <!-- Script de estilos para el contenido fel formulario-->
+                <h:outputStylesheet library="css" name="buscar.css" />
+
+            </ui:define>
+
+        </ui:composition>
+
     </body>
 </html>

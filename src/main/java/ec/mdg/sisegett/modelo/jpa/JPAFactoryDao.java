@@ -23,6 +23,10 @@ import ec.mdg.sisegett.modelo.dao.ObjetivosgeneralesDao;
 import ec.mdg.sisegett.modelo.dao.PersonaDao;
 import ec.mdg.sisegett.modelo.dao.PesoDao;
 import ec.mdg.sisegett.modelo.dao.TipoproyectoDao;
+import ec.mdg.sisegett.modelo.dao.TiposaccionesDao;
+
+
+
 
 /**
  *
@@ -49,70 +53,75 @@ public class JPAFactoryDao extends FactoryDao {
     public ArchivosverificablesDao getArchivosverificablesDao() {
         return new JPAArchivosverificablesDao();
     }
-    
+
     @Override
-    public AvanceDao getAvanceDao(){
+    public AvanceDao getAvanceDao() {
         return new JPAAvanceDao();
     }
-    
+
     @Override
-    public CorreoDao getCorreoDao(){
+    public CorreoDao getCorreoDao() {
         return new JPACorreoDao();
     }
-    
+
     @Override
-    public DuracionDao getDuracionDao(){
+    public DuracionDao getDuracionDao() {
         return new JPADuracionDao();
     }
-    
+
     @Override
-    public EjesDao getEjesDao(){
+    public EjesDao getEjesDao() {
         return new JPAEjesDao();
     }
-    
+
     @Override
-    public EstadogestionDao getEstadogestionDao(){
+    public EstadogestionDao getEstadogestionDao() {
         return new JPAEstadogestionDao();
     }
-    
+
     @Override
-    public ImportanciaDao getImportanciaDao(){
+    public ImportanciaDao getImportanciaDao() {
         return new JPAImportanciaDao();
     }
-    
+
     @Override
-    public InstitucionDao getInstitucionDao(){
+    public InstitucionDao getInstitucionDao() {
         return new JPAInstitucionDao();
     }
-    
+
     @Override
-    public MenuDao getMenuDao(){
+    public MenuDao getMenuDao() {
         return new JPAMenuDao();
     }
-    
+
     @Override
-    public ObjetivosespecificosDao getObjetivosespecificosDao(){
+    public ObjetivosespecificosDao getObjetivosespecificosDao() {
         return new JPAObjetivosespecificosDao();
     }
-    
+
     @Override
-    public ObjetivosgeneralesDao getObjetivosgeneralesDao(){
+    public ObjetivosgeneralesDao getObjetivosgeneralesDao() {
         return new JPAObjetivosgeneralesDao();
     }
-    
+
     @Override
-    public PersonaDao getPersonaDao(){
+    public PersonaDao getPersonaDao() {
         return new JPAPersonaDao();
     }
-    
+
     @Override
-    public PesoDao getPesoDao(){
+    public PesoDao getPesoDao() {
         return new JPAPesoDao();
     }
-    
+
     @Override
-    public TipoproyectoDao getTipoproyectoDao(){
+    public TipoproyectoDao getTipoproyectoDao() {
         return new JPATipoproyectoDao();
     }
-    
+
+    @Override
+    public TiposaccionesDao getTiposaccionesDao() {
+        return new JPATiposaccionesDao();
+    }
+
 }

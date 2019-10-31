@@ -10,7 +10,7 @@
         <link rel="icon" href="./../resources/images/user.ico"/>
         <link rel="icon" href="./../.../resources/images/user.ico"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Contenido Menú</title>
+        <title>MDG - SISEGETT</title>
 
         <!-- El siguiente evento muestra si la variable esta o no activa, se ejecuta antes de que la página sea visualizada -->
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}" />
@@ -31,7 +31,7 @@
                         <f:facet name="options">
 
                             Bienvenido(a): #{menuController.mostrarUsuarioLogueado()}
-                            <p:commandButton id="salir" actionListener="#{menuController.cerrarSesion()}" icon="fa fa-home" style="color: #04B45F;" action="/index?faces-redirect=true" />
+                            <p:commandButton id="salir" actionListener="#{menuController.cerrarSesion()}" icon="fa fa-power-off" action="/index?faces-redirect=true" />
                             <p:tooltip id="toolTipFade3" for="salir" value="Salir del Sistema" trackMouse="true"/>
                         </f:facet>
                     </p:menubar>

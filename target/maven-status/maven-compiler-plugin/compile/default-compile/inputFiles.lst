@@ -17,8 +17,10 @@ C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPACorreoDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAPesoDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAAvanceDao.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\ListarAccion.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\PersonaDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\menu\PlantillaController.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Tiposacciones.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Acciones.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAMenuDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\CorreoDao.java
@@ -30,6 +32,7 @@ C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAPersonaDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPATipoproyectoDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\InstitucionDao.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\VerAccion.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAObjetivosgeneralesDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\menu\MenuController.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\FactoryDao.java
@@ -46,14 +49,18 @@ C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Avance.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAInstitucionDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Correo.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\ActualizarAcccion.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAEstadogestionDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\DuracionDao.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\TiposaccionesDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAActividadesDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Ejes.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\ImportanciaDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\menu\Navegar.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPADuracionDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAImportanciaDao.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPATiposaccionesDao.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\RegistrarAccion.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\EjesDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\ArchivosverificablesDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\MenuDao.java
