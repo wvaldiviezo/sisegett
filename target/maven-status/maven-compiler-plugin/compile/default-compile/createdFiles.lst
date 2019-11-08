@@ -5,6 +5,7 @@ ec\mdg\sisegett\modelo\jpa\JPAArchivosverificablesDao.class
 ec\mdg\sisegett\modelo\jpa\JPAObjetivosespecificosDao.class
 ec\mdg\sisegett\modelo\entidad\Acciones_.class
 ec\mdg\sisegett\modelo\entidad\Avance.class
+ec\mdg\sisegett\controlador\aplicacion\aplicacion\ListarActividades.class
 ec\mdg\sisegett\modelo\entidad\Objetivosgenerales.class
 ec\mdg\sisegett\modelo\entidad\Tipoproyecto.class
 ec\mdg\sisegett\modelo\entidad\Peso.class
@@ -34,6 +35,7 @@ ec\mdg\sisegett\modelo\entidad\Menu.class
 ec\mdg\sisegett\modelo\entidad\Institucion_.class
 ec\mdg\sisegett\modelo\dao\AniosDao.class
 ec\mdg\sisegett\modelo\dao\InstitucionDao.class
+ec\mdg\sisegett\controlador\aplicacion\aplicacion\RegistrarActividad.class
 ec\mdg\sisegett\modelo\dao\ImportanciaDao.class
 ec\mdg\sisegett\controlador\aplicacion\menu\MenuController.class
 ec\mdg\sisegett\modelo\entidad\Correo_.class

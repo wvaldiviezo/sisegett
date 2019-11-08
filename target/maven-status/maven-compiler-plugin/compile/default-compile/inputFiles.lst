@@ -20,6 +20,7 @@ C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\ListarAccion.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\PersonaDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\menu\PlantillaController.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\ListarActividades.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Tiposacciones.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\entidad\Acciones.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAMenuDao.java
@@ -38,6 +39,7 @@ C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\FactoryDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\AniosDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\ObjetivosgeneralesDao.java
+C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\aplicacion\RegistrarActividad.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\controlador\aplicacion\menu\SessionBean.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\dao\EstadogestionDao.java
 C:\Users\wilmer.valdiviezo\Documents\NetBeansProjects\sisegett\src\main\java\ec\mdg\sisegett\modelo\jpa\JPAAniosDao.java

@@ -20,60 +20,96 @@ import javax.faces.view.ViewScoped;
  */
 @ManagedBean(name = "listarAccion")
 @ViewScoped
-public class ListarAccion  implements Serializable {
-    
+public class ListarAccion implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     private List<Acciones> ltsAcciones;
     //
     private Acciones accionActual;
-    
+
     //Ver
     @ManagedProperty("#{verAccion}")
     private VerAccion ctrVerAccion;
-    
+
     //Editar
     @ManagedProperty("#{actualizarAccion}")
     private ActualizarAcccion ctrActualizarAcccion;
-    
+
+    //Registrar Actividad
+    @ManagedProperty("#{registrarActividad}")
+    private RegistrarActividad ctrRegistrarActividad;
+
+    //Listar Actividades
+    @ManagedProperty("#{listarActividades}")
+    private ListarActividades ctrListarActividades;
+
     /**
      * Constructor
      */
-    public ListarAccion(){
+    public ListarAccion() {
         ltsAcciones = null;
     }
-    
+
     /**
-     * Método que llama al controlador VerAccion para ver el detalle de la información con la cual se registro una Accion;
-     * @return 
+     * Método que llama al controlador VerAccion para ver el detalle de la
+     * información con la cual se registro una Accion;
+     *
+     * @return
      */
-    public String verAccion(){
+    public String verAccion() {
         getCtrVerAccion().setAccionAct(accionActual);
         return "detalleAccion.sisegett";
     }
-    
+
     /**
-     * Método que llama al controlador ActualizarAccion para ver la información con la cual se registro una Accion y editar la misma;
-     * @return 
+     * Método que llama al controlador ActualizarAccion para ver la información
+     * con la cual se registro una Accion y editar la misma
+     *
+     * @return
      */
-    public String actualizarAccion(int idacc){
-        Acciones acc = (Acciones)JPAFactoryDao.getFactory().getAccionesDao().read(Integer.valueOf(idacc));
+    public String actualizarAccion(int idacc) {
+        Acciones acc = (Acciones) JPAFactoryDao.getFactory().getAccionesDao().read(Integer.valueOf(idacc));
         getCtrActualizarAcccion().setAccionAct(acc);
         return "actualizarAccion.sisegett";
     }
-    
-        //Método para eliminar
-    public String eliminarJuicio(int idacc) {
+
+    /* Método para eliminar una Accion, se debe implementar el borrado logico (cambio de estado), al momento se borraria de la base
+     * @return 
+     */
+    public String eliminarAccion(int idacc) {
         JPAFactoryDao.getFactory().getAccionesDao().deleteByID(Integer.valueOf(idacc));
         return "listarAcciones.sisegett";
     }
-    
-    //Getters & Setter
 
+    /**
+     * Método que llama al a la clase RegistrarActividad para mostrar la
+     * información la Actividad con la que va ser registrada una Accion
+     *
+     * @return
+     */
+    public String registrarActividad(int idacc) {
+        Acciones acc = (Acciones) JPAFactoryDao.getFactory().getAccionesDao().read(Integer.valueOf(idacc));
+        getCtrRegistrarActividad().setAccionAct(acc);
+        return "registrarActividad.sisegett";
+    }
+
+    /**
+     * Método que llama al a la clase VerActividades para mostrar el historial
+     * de Actividades que estan ligadas a una Accion
+     *
+     * @return
+     */
+    public String listarActividades() {
+        getCtrListarActividades().setAccionAct(accionActual);
+        return "listarActividades.sisegett";
+    }
+
+    //Getters & Setter
     public List<Acciones> getLtsAcciones() {
         //this.ltsAcciones = null;
         //if(this.ltsAcciones == null){
-         ltsAcciones = JPAFactoryDao.getFactory().getAccionesDao().listarAccionesDesc();   
+        ltsAcciones = JPAFactoryDao.getFactory().getAccionesDao().listarAccionesDesc();
         //}
         return this.ltsAcciones;
     }
@@ -114,6 +150,20 @@ public class ListarAccion  implements Serializable {
         this.ctrActualizarAcccion = ctrActualizarAcccion;
     }
 
-    
-    
+    public RegistrarActividad getCtrRegistrarActividad() {
+        return this.ctrRegistrarActividad;
+    }
+
+    public void setCtrRegistrarActividad(RegistrarActividad ctrRegistrarActividad) {
+        this.ctrRegistrarActividad = ctrRegistrarActividad;
+    }
+
+    public ListarActividades getCtrListarActividades() {
+        return ctrListarActividades;
+    }
+
+    public void setCtrListarActividades(ListarActividades ctrListarActividades) {
+        this.ctrListarActividades = ctrListarActividades;
+    }
+
 }//Fin de la clase

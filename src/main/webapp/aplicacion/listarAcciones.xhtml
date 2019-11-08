@@ -39,21 +39,25 @@
                             </p:commandButton>
                             <p:tooltip id="toolTipFade9" for="ver" value="Detalle Acción" trackMouse="true"/>
                             <t/><t/><t/><t/><t/><t/>
+                            
                             <p:commandButton id="editar" icon="fa fa-edit" action="#{listarAccion.actualizarAccion(itemAccion.idacc)}" style="color: #04B45F"/>
                             <p:tooltip id="toolTipFade8" for="editar" value="Editar" trackMouse="true"/>
                             <t/><t/><t/><t/><t/><t/>
-                            <p:commandButton id="eliminar" icon="fa fa-trash" action="#{juiciosListar.eliminarJuicio(itemEstudio.juCodigo)}" style="color: #D20005">
+                            
+                            <p:commandButton id="eliminar" icon="fa fa-trash" action="#{listarAccion.eliminarAccion(itemAccion.idacc)}" style="color: #D20005">
                                 <p:confirm header="Confirmación" message="Desea eliminar el registro." icon="ui-icon-alert" />
                             </p:commandButton>
                             <p:tooltip id="toolTipFade7" for="eliminar" value="Eliminar" trackMouse="true"/>
                             <t/><t/><t/><t/><t/><t/>
-                            <p:commandButton id="diligencia" icon="fa fa-sticky-note" action="#{juiciosListar.registrarDiligencia(itemEstudio.juCodigo)}" style="color: #2F4F4F"/>
-                            <p:tooltip id="toolTipFade20" for="diligencia" value="Registrar Actividad" trackMouse="true"/>
+                            
+                            <p:commandButton id="actividad" icon="fa fa-sticky-note" action="#{listarAccion.registrarActividad(itemAccion.idacc)}" style="color: #2F4F4F"/>
+                            <p:tooltip id="toolTipFade20" for="actividad" value="Registrar Actividad" trackMouse="true"/>
                             <t/><t/><t/><t/><t/><t/>
-                            <p:commandButton id="detalleDiligencia" icon="fa fa-list-alt" action="#{juiciosListar.verDiligencia()}" style="color:  #1f618d " process="@form">
-                                <f:setPropertyActionListener target="#{juiciosListar.juActual}" value="#{itemEstudio}" rendered="@form" />
+                            
+                            <p:commandButton id="lactividades" icon="fa fa-list-alt" action="#{listarAccion.listarActividades()}" style="color:  #1f618d " process="@form">
+                                <f:setPropertyActionListener target="#{listarAccion.accionActual}" value="#{itemAccion}" rendered="@form" />
                             </p:commandButton>
-                            <p:tooltip id="toolTipFade21" for="detalleDiligencia" value="Historial Actividades" trackMouse="true"/>
+                            <p:tooltip id="toolTipFade21" for="lactividades" value="Historial Actividades" trackMouse="true"/>
 
                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                                 <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>

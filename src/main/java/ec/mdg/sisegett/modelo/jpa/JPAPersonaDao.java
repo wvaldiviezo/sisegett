@@ -7,6 +7,8 @@ package ec.mdg.sisegett.modelo.jpa;
 
 import ec.mdg.sisegett.modelo.dao.PersonaDao;
 import ec.mdg.sisegett.modelo.entidad.Persona;
+import java.util.List;
+import javax.persistence.Query;
 
 /**
  *
@@ -16,6 +18,18 @@ public class JPAPersonaDao extends JPAGenericDao<Persona, Integer> implements Pe
     
     public JPAPersonaDao(){
         super(Persona.class);
+    }
+    
+    @Override
+    public List<Persona> buscarPersonaPorInstitucion(int idins){
+        List personaInstitucionSeleccionada = null;
+        try {
+            String consulta = "select * from institucion i, persona p where i.idins = p.idins and i.idins = "+idins;
+            Query query = em.createNativeQuery(consulta, Persona.class);
+        } catch (Exception e) {
+            System.out.println("error en la consulta SQL en buscarPersonaPorInstitucion");
+        }
+        return personaInstitucionSeleccionada;
     }
     
 }

@@ -6,11 +6,14 @@
 package ec.mdg.sisegett.modelo.dao;
 
 import ec.mdg.sisegett.modelo.entidad.Persona;
+import java.util.List;
 
 /**
  *
  * @author wilmer.valdiviezo
  */
 public interface PersonaDao extends GenericDao<Persona, Integer>{
+    
+    List<Persona> buscarPersonaPorInstitucion(int idins);
     
 }

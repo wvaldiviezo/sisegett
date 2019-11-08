@@ -5,12 +5,18 @@
  */
 package ec.mdg.sisegett.modelo.dao;
 
+import ec.mdg.sisegett.modelo.entidad.Acciones;
 import ec.mdg.sisegett.modelo.entidad.Actividades;
+import java.util.List;
 
 /**
  *
  * @author wilmer.valdiviezo
  */
 public interface ActividadesDao extends GenericDao<Actividades, Integer>{
+    
+    
+    public List<Actividades> listaActividadesDesc (int idacc);
+    
     
 }

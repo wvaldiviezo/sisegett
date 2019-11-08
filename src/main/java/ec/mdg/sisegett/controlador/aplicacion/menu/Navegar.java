@@ -29,7 +29,7 @@ public class Navegar implements Serializable {
     /*Método para direccionar a la Página principal*/
     public void direccionarInicio() {
         try {
-            System.err.println("mensaje" + mensaje);
+            System.err.println("mensaje " + mensaje);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Mensaje:", mensaje);
             FacesContext.getCurrentInstance().addMessage(null, message);
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
